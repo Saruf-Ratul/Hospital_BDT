@@ -137,17 +137,51 @@ class Verification
     }
     // Verify Product Purchase 
     public function verify_purchase($data)
-{
+    {
 
-$_SESSION['product_key'] = "1234567890";
-$_SESSION['purchase_key'] = "1234567890";
-$_SESSION['domain'] = "localhost";
-$_SESSION['full_domain'] = "localhost";
-$_SESSION['user_id'] = "1";
-$_SESSION['whitelist'] = "";
+    $_SESSION['product_key'] = "1234567890";
+    $_SESSION['purchase_key'] = "1234567890";
+    $_SESSION['domain'] = "localhost";
+    $_SESSION['full_domain'] = "localhost";
+    $_SESSION['user_id'] = "1";
+    $_SESSION['whitelist'] = "";
 
-return 'yes';
-}
+    return 'yes';
+    }
+    // public function verify_purchase($data)
+    // { 
+    //     $this->user_id = filterInput($data['userid']);
+    //     $this->purchase_key = filterInput($data['purchase_key']);
+
+    //     // Filter Purchase Key
+    //     if(!$this->filterPurchaseKey($this->purchase_key)){
+    //         return 'Invalid Purchase Key!';
+    //     }
+
+    //     if (!$this->serverAliveOrNot()) {
+    //         return 'Please Connect with internet!';
+    //     }
+
+    //     $result = $this->response();
+    //     if($result['status'] === TRUE){
+    //         $_SESSION['product_key'] = $this->product_key;
+    //         $_SESSION['purchase_key'] = $this->purchase_key;
+    //         $_SESSION['domain'] = $this->domain;
+    //         $_SESSION['full_domain'] = $this->full_domain;
+    //         $_SESSION['user_id'] = $this->user_id;
+    //         $_SESSION['whitelist'] = $result['whitelist'];
+    //         $return = 'yes';
+    //     }else if($result['msg'] == 'used'){
+    //         // Set session purchase key used as true
+    //         $_SESSION['purchase_key_used'] = true;
+    //         $return = 'This Purchase Key Already Used!';
+    //     }else if($result['msg'] == 'invalid'){
+    //         $return = 'Invalid User ID or Purchase Key!';
+    //     }else{
+    //         $return = 'Please Try Again!';
+    //     }
+    //     return $return;
+    // }
 
 
     private function writeFile()
